@@ -25,6 +25,10 @@ Installation:
 
 
 
+
+
+
+
 TODO: later on we will upload the WRTnode firmware and the Me-Baseboard firmware here
 
 TODO: to get the parameter across the WRTnode and the Me-Baseboard more smooth and get the turn right parameter dont use the 360 near value
