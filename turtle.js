@@ -332,8 +332,7 @@ Turtle.step = function(command, values) {
         Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
         Turtle.ctxScratch.stroke();
       }
-      carMove='http://my.wrtnode:8080/g?value=' + distance;
-	  //carWait= Math.abs(distance) * 100;
+      carMove='http://my.wrtnode:8080/g?value=' + distance/15;
       break;
     case 'RT':  // Right Turn
       Turtle.heading += values[0];
@@ -341,8 +340,8 @@ Turtle.step = function(command, values) {
       if (Turtle.heading < 0) {
         Turtle.heading += 360;
       }
-      carMove='http://my.wrtnode:8080/t?value=' + Turtle.heading;
-	  //carWait=1500;
+	  var argle = values[0] %= 360;
+      carMove='http://my.wrtnode:8080/t?value=' + (argle>180?argle-360:argle)/30;
       break;
     case 'DP':  // Draw Print
       Turtle.ctxScratch.save();
@@ -374,17 +373,11 @@ Turtle.step = function(command, values) {
       Turtle.visible = true;
       break;
   }
-/*     request.open('get', carMove, false);
-    //request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    request.send(null);
-	var response = request.responseText; */
 	try{
 		resource.open('GET', carMove, false);
 		resource.send(null);
-		//response = resource.responseText; // JavaScript waits for response
 	}
 	catch(e){
-		//alert(e);
 	}
 	
 };
