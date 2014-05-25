@@ -332,7 +332,7 @@ Turtle.step = function(command, values) {
         Turtle.ctxScratch.lineTo(Turtle.x, Turtle.y + bump);
         Turtle.ctxScratch.stroke();
       }
-      carMove='http://my.wrtnode:8080/g?value=' + distance/15;
+      carMove='http://my.wrtnode:8080/g?value=' + Math.floor(distance/15);
       break;
     case 'RT':  // Right Turn
       Turtle.heading += values[0];
@@ -341,7 +341,7 @@ Turtle.step = function(command, values) {
         Turtle.heading += 360;
       }
 	  var argle = values[0] %= 360;
-      carMove='http://my.wrtnode:8080/t?value=' + (argle>180?argle-360:argle)/30;
+      carMove='http://my.wrtnode:8080/t?value=' + Math.floor((argle>180?argle-360:argle)/30);
       break;
     case 'DP':  // Draw Print
       Turtle.ctxScratch.save();
