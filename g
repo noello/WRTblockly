@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 value=${QUERY_STRING#*=}
 
 if [ $value -gt 0 ]; then
@@ -9,8 +8,6 @@ else
 	dir="01"
 	value=${value#*-}
 fi
-
-echo $value >> /dev/ttyS0
 
 i=0;
 while [[ $i -lt $value ]];do
