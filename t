@@ -1,7 +1,6 @@
 #!/bin/sh
 
-
-value=$((${QUERY_STRING#*=}/15))
+value=${QUERY_STRING#*=}
 
 if [ $value -gt 0 ]; then
 	dir="02"
@@ -9,8 +8,6 @@ else
 	dir="03"
 	value=${value#*-}
 fi
-
-echo $value >> /dev/ttyS0
 
 i=0;
 while [[ $i -lt $value ]];do
